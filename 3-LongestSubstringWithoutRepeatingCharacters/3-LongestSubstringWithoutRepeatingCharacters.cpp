@@ -1,26 +1,26 @@
-// Last updated: 11/26/2025, 12:10:36 AM
-class Solution {
-public:
-    int lengthOfLongestSubstring(string s) {
-
-        // Here i used two pointers sliding window of TC O(n) & O(k) SC
-        int maxx=0;
-        int l = 0;
-        unordered_set<int> mp;
-
-        for(int r = 0; r < s.size(); r++){
-
-            while(mp.find(s[r]) != mp.end()){
-                mp.erase(s[l]);
-                l++;
-                
-            }
-            maxx = max(r-l+1, maxx);
-            mp.insert(s[r]);
-        }
-
-
-        return maxx;
-        
-    }
-};
+// Last updated: 12/28/2025, 12:25:59 PM
+1class Solution {
+2public:
+3    int lengthOfLongestSubstring(string s) {
+4
+5        // Here i used two pointers sliding window of TC O(n) & O(k) SC
+6        int maxx=0;
+7        int l = 0;
+8        unordered_set<int> mp;
+9
+10        for(int r = 0; r < s.size(); r++){
+11
+12            while(mp.find(s[r]) != mp.end()){
+13                mp.erase(s[l]);
+14                l++;
+15                
+16            }
+17            maxx = max(r-l+1, maxx);
+18            mp.insert(s[r]);
+19        }
+20
+21
+22        return maxx;
+23        
+24    }
+25};
