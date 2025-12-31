@@ -1,4 +1,4 @@
-// Last updated: 12/31/2025, 8:35:31 PM
+// Last updated: 12/31/2025, 9:23:02 PM
 1class Solution {
 2public:
 3    void backtrack(vector<vector<char>>& board, string& word, bool& res, int r, int c, int idx ){
@@ -27,17 +27,18 @@
 26
 27    bool exist(vector<vector<char>>& board, string word) {
 28        bool res = false;
-29
-30        for(int i = 0; i < board.size(); i++){
-31            for(int j = 0; j < board[i].size(); j++){
-32                if(board[i][j] == word[0]) {
-33                    backtrack(board, word, res, i, j, 0);
-34                }
-35                if(res) break;
-36            }
-37            if(res) break;
-38        }
-39        return res;
-40       
-41    }
-42};
+29        
+30
+31        for(int i = 0; i < board.size(); i++){
+32            for(int j = 0; j < board[i].size(); j++){
+33                if(board[i][j] == word[0]) {
+34                    backtrack(board, word, res, i, j, 0);
+35                }
+36                if(res) break;
+37            }
+38            if(res) break;
+39        }
+40        return res;
+41       
+42    }
+43};
