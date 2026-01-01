@@ -1,4 +1,4 @@
-// Last updated: 12/31/2025, 9:23:02 PM
+// Last updated: 1/1/2026, 2:08:01 PM
 1class Solution {
 2public:
 3    void backtrack(vector<vector<char>>& board, string& word, bool& res, int r, int c, int idx ){
