@@ -1,8 +1,8 @@
-// Last updated: 1/5/2026, 4:50:38 PM
+// Last updated: 1/5/2026, 4:57:39 PM
 1class Solution {
 2public:
 3
-4    void backtrack(string& digits,unordered_map<int, string>& mp, vector<string>& res, string& draft, int idx){
+4    void backtrack(string& digits,vector<string>& mp, vector<string>& res, string& draft, int idx){
 5        if(idx == digits.length()){
 6            res.push_back(draft);
 7            return;
@@ -16,22 +16,24 @@
 15    }
 16    vector<string> letterCombinations(string digits) {
 17        if(digits.empty()) return {};
-18        unordered_map<int, string> mp = {
-19            {2, "abc"},
-20            {3, "def"},
-21            {4, "ghi"},
-22            {5, "jkl"},
-23            {6, "mno"},
-24            {7, "pqrs"},
-25            {8, "tuv"},
-26            {9, "wxyz"}
-27        };
-28        string draft;
-29        vector<string> res;
-30        backtrack(digits, mp, res, draft, 0);
-31
-32        return res;
+18        vector<string> db = {
+19            {""},
+20            {""},
+21            {"abc"},
+22            {"def"},
+23            {"ghi"},
+24            {"jkl"},
+25            {"mno"},
+26            {"pqrs"},
+27            {"tuv"},
+28            {"wxyz"}
+29        };
+30        string draft;
+31        vector<string> res;
+32        backtrack(digits, db, res, draft, 0);
 33
-34        
-35    }
-36};
+34        return res;
+35
+36        
+37    }
+38};
