@@ -1,4 +1,4 @@
-// Last updated: 1/5/2026, 4:57:39 PM
+// Last updated: 1/5/2026, 5:02:08 PM
 1class Solution {
 2public:
 3
@@ -17,16 +17,16 @@
 16    vector<string> letterCombinations(string digits) {
 17        if(digits.empty()) return {};
 18        vector<string> db = {
-19            {""},
-20            {""},
-21            {"abc"},
-22            {"def"},
-23            {"ghi"},
-24            {"jkl"},
-25            {"mno"},
-26            {"pqrs"},
-27            {"tuv"},
-28            {"wxyz"}
+19            "",
+20            "",
+21            "abc",
+22            "def",
+23            "ghi",
+24            "jkl",
+25            "mno",
+26            "pqrs",
+27            "tuv",
+28            "wxyz"
 29        };
 30        string draft;
 31        vector<string> res;
