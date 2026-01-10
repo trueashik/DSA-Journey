@@ -1,4 +1,4 @@
-// Last updated: 1/10/2026, 1:27:52 AM
+// Last updated: 1/10/2026, 10:14:04 PM
 1class Trie {
 2    // Here used trie with tc & SC O(L);
 3public:
