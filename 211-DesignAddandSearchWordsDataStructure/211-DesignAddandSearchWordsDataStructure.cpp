@@ -1,54 +1,55 @@
-// Last updated: 1/12/2026, 7:38:48 PM
+// Last updated: 1/12/2026, 7:47:58 PM
 1class WordDictionary {
-2public:
-3    struct Node{
-4        Node* next[26] = {};
-5        bool isend = false;
-6
-7    };
-8    Node* root;
-9    WordDictionary() {
-10        root = new Node();
-11        
-12    }
-13    
-14    void addWord(string word) {
-15        Node* cur = root;
-16        for(int i = 0; i < word.size(); i++){
-17            int idx = word[i] - 'a';
-18            if(cur->next[idx] == nullptr) cur->next[idx] = new Node();
-19            cur = cur->next[idx];
-20        }
-21        cur->isend = true;
-22        
-23    }
-24    bool dfs(string& word, int idx, Node* cur){
-25        if(!cur) return false;
-26        if(word.size() == idx ) return cur->isend;
-27
-28        if(word[idx] == '.'){
-29            for(int i = 0; i < 26; i++){
-30                if(dfs(word, idx+1, cur->next[i])) return true;
-31            }
-32            return false;
-33        } else {
-34            int tdx = word[idx] - 'a';           
-35            if(!cur->next[tdx]) return false;
-36            if(dfs(word, idx + 1, cur->next[tdx])) return true;
-37        }
-38        return false;
-39         
-40    }
-41    
-42    bool search(string word) {
-43        return dfs(word, 0, root);   
-44        
-45    }
-46};
-47
-48/**
-49 * Your WordDictionary object will be instantiated and called as such:
-50 * WordDictionary* obj = new WordDictionary();
-51 * obj->addWord(word);
-52 * bool param_2 = obj->search(word);
-53 */
+2    // Here i have added a trie with TC O(L*26^k) SC is O(L+N)
+3public:
+4    struct Node{
+5        Node* next[26] = {};
+6        bool isend = false;
+7
+8    };
+9    Node* root;
+10    WordDictionary() {
+11        root = new Node();
+12        
+13    }
+14    
+15    void addWord(string word) {
+16        Node* cur = root;
+17        for(int i = 0; i < word.size(); i++){
+18            int idx = word[i] - 'a';
+19            if(cur->next[idx] == nullptr) cur->next[idx] = new Node();
+20            cur = cur->next[idx];
+21        }
+22        cur->isend = true;
+23        
+24    }
+25    bool dfs(string& word, int idx, Node* cur){
+26        if(!cur) return false;
+27        if(word.size() == idx ) return cur->isend;
+28
+29        if(word[idx] == '.'){
+30            for(int i = 0; i < 26; i++){
+31                if(dfs(word, idx+1, cur->next[i])) return true;
+32            }
+33            return false;
+34        } else {
+35            int tdx = word[idx] - 'a';           
+36            if(!cur->next[tdx]) return false;
+37            if(dfs(word, idx + 1, cur->next[tdx])) return true;
+38        }
+39        return false;
+40         
+41    }
+42    
+43    bool search(string word) {
+44        return dfs(word, 0, root);   
+45        
+46    }
+47};
+48
+49/**
+50 * Your WordDictionary object will be instantiated and called as such:
+51 * WordDictionary* obj = new WordDictionary();
+52 * obj->addWord(word);
+53 * bool param_2 = obj->search(word);
+54 */
