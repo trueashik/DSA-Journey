@@ -1,4 +1,4 @@
-// Last updated: 1/17/2026, 11:45:39 AM
+// Last updated: 1/17/2026, 11:47:21 AM
 1/*
 2// Definition for a Node.
 3class Node {
@@ -23,29 +23,28 @@
 22    if(!node) return;
 23
 24    for(Node* n : node->neighbors){
-25        
-26        auto it = mp.insert({n, 0});
-27        if(it.second){
-28            Node* tmp = new Node(n->val);
-29            mp[n] = tmp;
-30            recurse(n, tmp, mp);
-31        }
-32        ans->neighbors.push_back(mp[n]);
+25
+26        if(!mp.count(n)){
+27            Node* tmp = new Node(n->val);
+28            mp[n] = tmp;
+29            recurse(n, tmp, mp);
+30        }
+31        ans->neighbors.push_back(mp[n]);
+32        
 33        
-34        
-35    }
-36}
-37
-38class Solution {
-39public:
-40    Node* cloneGraph(Node* node) { 
-41        if (!node) return nullptr;       
-42        unordered_map<Node*, Node*> mp;
-43
-44        Node* ans = new Node(node->val);
-45        mp[node] = ans;
-46        recurse(node, ans, mp);
-47        return ans;
-48        
-49    }
-50};
+34    }
+35}
+36
+37class Solution {
+38public:
+39    Node* cloneGraph(Node* node) { 
+40        if (!node) return nullptr;       
+41        unordered_map<Node*, Node*> mp;
+42
+43        Node* ans = new Node(node->val);
+44        mp[node] = ans;
+45        recurse(node, ans, mp);
+46        return ans;
+47        
+48    }
+49};
