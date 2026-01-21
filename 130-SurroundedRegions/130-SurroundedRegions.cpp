@@ -1,4 +1,4 @@
-// Last updated: 1/21/2026, 6:56:26 PM
+// Last updated: 1/21/2026, 7:01:02 PM
 1class Solution {
 2public:
 3
@@ -13,23 +13,24 @@
 12        dfs(board, x-1, y);
 13    }
 14    void solve(vector<vector<char>>& board) {
-15        int m = board.size();
-16        int n = board[0].size();
-17
-18        for(int i = 0; i < m; i++){
-19            if(board[i][0] == 'O') dfs(board, i, 0);
-20            if(board[i][n-1] == 'O') dfs(board, i, n-1);
-21        }
-22        for(int i = 0; i < n; i++){
-23            if(board[0][i] == 'O') dfs(board, 0, i);
-24            if(board[m-1][i] == 'O') dfs(board, m-1, i);
-25        }
-26
-27        for(int i = 0; i < m ; i++){
-28            for(int j = 0; j < n; j++){
-29                board[i][j] = board[i][j] == 'O' ? 'X' : board[i][j] == 'Z' ? 'O' : board[i][j];
-30            }
-31        }
-32        
-33    }
-34};
+15        if(board.empty() || board[0].empty()) return;
+16        int m = board.size();
+17        int n = board[0].size();
+18
+19        for(int i = 0; i < m; i++){
+20            if(board[i][0] == 'O') dfs(board, i, 0);
+21            if(board[i][n-1] == 'O') dfs(board, i, n-1);
+22        }
+23        for(int i = 0; i < n; i++){
+24            if(board[0][i] == 'O') dfs(board, 0, i);
+25            if(board[m-1][i] == 'O') dfs(board, m-1, i);
+26        }
+27
+28        for(int i = 0; i < m ; i++){
+29            for(int j = 0; j < n; j++){
+30                board[i][j] = board[i][j] == 'O' ? 'X' : board[i][j] == 'Z' ? 'O' : board[i][j];
+31            }
+32        }
+33        
+34    }
+35};
