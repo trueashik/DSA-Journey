@@ -294,7 +294,6 @@ Problems where locally optimal choices lead to globally optimal solutions.
 | **Spaced Repetition** | Re-solve all weekly problems every Sunday |
 | **Monthly Review** | Hardest problems of the month re-solved on the last Sunday |
 | **Language** | C++ with full STL usage (`vector`, `map`, `set`, `stack`, `queue`, `priority_queue`, `<algorithm>`) |
-| **Automation** | Solutions auto-pushed via [LeetCode Tracker](https://github.com/JeffreyGbeho/leetcode-tracker) |
 
 ---
 
